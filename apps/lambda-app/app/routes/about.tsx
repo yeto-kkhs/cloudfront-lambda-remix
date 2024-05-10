@@ -22,6 +22,18 @@ export default function AboutPage() {
             <Await resolve={data}>{(data) => <div>{data}</div>}</Await>
           </Suspense>
         </div>
+        <button
+          type="button"
+          onClick={async () => {
+            const res = await fetch("/api", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+            });
+            console.log(await res.json());
+          }}
+        >
+          api
+        </button>
       </main>
     </div>
   );
